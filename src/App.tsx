@@ -48,38 +48,10 @@ function PageLoader() {
   return (
     <div className="loader-overlay" aria-live="polite" aria-busy="true">
       <div className="loader-card">
-        <div className="loader-brand" aria-label="MotionCare">
-          <span className="loader-brand-mark" aria-hidden="true">
+        <div className="loader-logo" aria-label="MotionCare logo">
+          <span className="loader-logo-mark" aria-hidden="true">
             <span />
           </span>
-          <span>MotionCare</span>
-        </div>
-        <div className="loader-scene" aria-hidden="true">
-          <div className="loader-ground" />
-          <svg className="loader-person" viewBox="0 0 120 150" role="presentation">
-            <circle className="person-head" cx="66" cy="21" r="13" />
-            <path className="person-neck" d="M63 32h10v12H63z" />
-            <path
-              className="person-torso"
-              d="M54 39c4-5 21-5 26 1l8 28-5 24-29 1-7-23z"
-            />
-            <g className="person-arm person-arm-back">
-              <path d="M52 47c-6 7-11 20-13 30l-5 14" />
-              <circle cx="34" cy="93" r="4.5" />
-            </g>
-            <g className="person-arm person-arm-front">
-              <path d="M81 47c7 7 11 18 12 27l8 11" />
-              <circle cx="102" cy="87" r="4.5" />
-            </g>
-            <g className="person-leg person-leg-back">
-              <path d="M59 89c-5 12-10 22-10 34l-8 17" />
-              <path className="person-foot" d="M41 140l-8 2" />
-            </g>
-            <g className="person-leg person-leg-front">
-              <path d="M75 90c6 11 12 20 11 31l9 18" />
-              <path className="person-foot" d="M95 139l9 2" />
-            </g>
-          </svg>
         </div>
         <p className="loader-message">Getting You Back in Motion...</p>
         <div className="loader-progress" role="presentation">
@@ -887,12 +859,8 @@ function AppLayout() {
   useEffect(() => {
     setIsLoading(true);
 
-    const timer = window.setTimeout(() => {
-      setIsLoading(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 180 : 350);
-
-    return () => window.clearTimeout(timer);
+    setIsLoading(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
 
   return (

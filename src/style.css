@@ -811,143 +811,40 @@ select:focus {
   padding: 1.5rem;
 }
 
-.loader-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  color: #173d35;
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.loader-brand-mark {
-  width: 36px;
-  height: 36px;
+.loader-logo {
+  position: relative;
+  width: 56px;
+  height: 56px;
   display: grid;
   place-items: center;
-  border-radius: 12px;
+  border: 2px solid rgba(23, 61, 53, 0.14);
+  border-top-color: #173d35;
+  border-radius: 50%;
+  animation: logo-turn 1.8s linear infinite;
+}
+
+.loader-logo-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
   background: #173d35;
 }
 
-.loader-brand-mark span {
-  width: 14px;
-  height: 14px;
+.loader-logo-mark span {
+  width: 16px;
+  height: 16px;
   border: 2px solid #d5e8b8;
-  border-right-color: transparent;
+  border-top-color: transparent;
   border-radius: 50%;
   transform: rotate(-25deg);
-}
-
-.loader-scene {
-  position: relative;
-  width: min(280px, 72vw);
-  height: 136px;
-  overflow: hidden;
-}
-
-.loader-ground {
-  position: absolute;
-  right: 0;
-  bottom: 14px;
-  left: 0;
-  height: 2px;
-  background: rgba(23, 61, 53, 0.18);
-  transform-origin: left center;
-}
-
-.loader-ground::after {
-  content: '';
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 36%;
-  background: #d5e8b8;
-  animation: ground-progress 2.4s ease-in-out infinite;
-}
-
-.loader-person {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  width: 88px;
-  height: 110px;
-  overflow: visible;
-  transform: translateX(-50%);
-  animation: person-travel 2.4s ease-in-out infinite;
-}
-
-.person-head,
-.person-neck,
-.person-torso {
-  fill: #173d35;
-}
-
-.person-head {
-  transform-box: fill-box;
-  transform-origin: center bottom;
-  animation: head-settle 0.8s ease-in-out infinite alternate;
-}
-
-.person-neck {
-  rx: 4px;
-}
-
-.person-torso {
-  fill: #173d35;
-}
-
-.person-arm,
-.person-leg {
-  fill: none;
-  stroke: #173d35;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.person-arm {
-  stroke-width: 8px;
-  transform-box: view-box;
-}
-
-.person-arm circle {
-  fill: #173d35;
-  stroke: none;
-}
-
-.person-arm-back {
-  transform-origin: 43.3% 31.3%;
-  animation: arm-back 0.8s ease-in-out infinite;
-}
-
-.person-arm-front {
-  transform-origin: 67.5% 31.3%;
-  animation: arm-front 0.8s ease-in-out infinite;
-}
-
-.person-leg {
-  stroke-width: 11px;
-  transform-box: view-box;
-}
-
-.person-leg-back {
-  transform-origin: 49.2% 59.3%;
-  animation: leg-back 0.8s ease-in-out infinite;
-}
-
-.person-leg-front {
-  transform-origin: 62.5% 59.3%;
-  animation: leg-front 0.8s ease-in-out infinite;
-}
-
-.person-foot {
-  stroke-width: 7px;
 }
 
 .loader-message {
   margin: 0;
   color: #173d35;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
 }
 
@@ -968,69 +865,9 @@ select:focus {
   animation: progress-sweep 1.4s ease-in-out infinite;
 }
 
-@keyframes person-travel {
-  0%,
-  100% {
-    transform: translateX(-125%);
-  }
-  50% {
-    transform: translateX(25%);
-  }
-}
-
-@keyframes ground-progress {
-  0%,
-  100% {
-    transform: scaleX(0.28);
-  }
-  50% {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes head-settle {
+@keyframes logo-turn {
   to {
-    transform: translateY(1px);
-  }
-}
-
-@keyframes arm-back {
-  0%,
-  100% {
-    transform: rotate(18deg);
-  }
-  50% {
-    transform: rotate(-22deg);
-  }
-}
-
-@keyframes arm-front {
-  0%,
-  100% {
-    transform: rotate(-22deg);
-  }
-  50% {
-    transform: rotate(18deg);
-  }
-}
-
-@keyframes leg-back {
-  0%,
-  100% {
-    transform: rotate(22deg);
-  }
-  50% {
-    transform: rotate(-18deg);
-  }
-}
-
-@keyframes leg-front {
-  0%,
-  100% {
-    transform: rotate(-18deg);
-  }
-  50% {
-    transform: rotate(22deg);
+    transform: rotate(360deg);
   }
 }
 
